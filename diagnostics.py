@@ -1,4 +1,6 @@
-
+"""
+Python script meant to measure model and data diagnostics.
+"""
 import pandas as pd
 import numpy as np
 import timeit
@@ -11,17 +13,21 @@ import subprocess
 import sys
 
 
-##################Load config.json and get environment variables
-with open('config.json','r') as f:
+with open('config.json', 'r') as f:
+    """
+    Load config.json and correct path variable.
+    """
     config = json.load(f) 
 
 model_path = os.path.join(config['prod_deployment_path'])
 test_data_path = os.path.join(config['test_data_path']) 
 
 
-##################Function to get model predictions
 def model_predictions(dataset_path):
-    #read the deployed model and a test dataset, calculate predictions
+    """
+    Function to get model predictions.
+    """
+    # read the deployed model and a test dataset, calculate predictions
     model = load(os.path.join(model_path, "trainedmodel.pkl"))
     encoder = load(os.path.join(model_path, "encoder.pkl"))
     
@@ -35,9 +41,11 @@ def model_predictions(dataset_path):
     return y_pred, df_y
 
 
-##################Function to get summary statistics
 def dataframe_summary():
-    #calculate summary statistics here
+    """
+    Function to get summary statistics.
+    """
+    # calculate summary statistics here
     df = pd.read_csv(os.path.join(test_data_path, "testdata.csv"))
     numeric_columns = [
         "lastmonth_activity",
@@ -54,9 +62,10 @@ def dataframe_summary():
     return result
 
 
-##################Function to get summary statistics
 def missing_data():
-    #calculate summary statistics here
+    """
+    Function to deal with missing data.
+    """
     df = pd.read_csv(os.path.join(test_data_path, "testdata.csv"))
     
     result = []
@@ -70,10 +79,11 @@ def missing_data():
     return str(result)
 
 
-##################Function to get timings
 def execution_time():
-    #calculate timing of training.py and ingestion.py
-
+    """
+    Function to get timings.
+    """
+    # calculate timing of training.py and ingestion.py
     result = []
     for procedure in ["training.py" , "ingestion.py"]:
         starttime = timeit.default_timer()
@@ -83,8 +93,11 @@ def execution_time():
  
     return str(result)
 
-##################Function to check dependencies
+
 def outdated_packages_list():
+    """
+    Function to check dependencies.
+    """
     outdated_packages = subprocess.check_output(['pip', 'list', '--outdated']).decode(sys.stdout.encoding)
     
     return str(outdated_packages)

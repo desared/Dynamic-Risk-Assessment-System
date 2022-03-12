@@ -1,3 +1,6 @@
+"""
+Python script meant to ingest new data.
+"""
 import pandas as pd
 import glob
 import json
@@ -5,6 +8,9 @@ import os
 
 
 with open("config.json", "r") as f:
+    """
+    Load config.json and get input and output paths.
+    """
     config = json.load(f)
 
 input_folder_path = config["input_folder_path"]
@@ -12,6 +18,9 @@ output_folder_path = config["output_folder_path"]
 
 
 def merge_multiple_dataframe():
+    """
+    Check for datasets, compile them together, and write to an output file.
+    """
     csv_files = glob.glob("%s/*.csv" % input_folder_path)
 
     df = pd.concat(map(pd.read_csv, csv_files), ignore_index=True)
