@@ -10,7 +10,11 @@ from joblib import load
 from scipy.sparse import data
 from common_functions import preprocess_data
 import subprocess
+import logging
 import sys
+
+
+logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 
 
 with open('config.json', 'r') as f:
@@ -31,7 +35,8 @@ def model_predictions(dataset_path):
     model = load(os.path.join(model_path, "trainedmodel.pkl"))
     encoder = load(os.path.join(model_path, "encoder.pkl"))
     
-    if dataset_path is None: dataset_path = "testdata.csv"
+    if dataset_path is None:
+        dataset_path = "testdata.csv"
     df = pd.read_csv(os.path.join(test_data_path, dataset_path))
 
     df_x, df_y, _ = preprocess_data(df, encoder)
@@ -104,6 +109,7 @@ def outdated_packages_list():
 
 
 if __name__ == '__main__':
+    logging.info("Running diagnostics!")
     model_predictions(None)
     execution_time()
     dataframe_summary()

@@ -10,9 +10,13 @@ from sklearn import metrics
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import OneHotEncoder
+import logging
 import json
+import sys
 from joblib import dump
 from common_functions import preprocess_data
+
+logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 
 
 with open('config.json', 'r') as f:
@@ -65,4 +69,7 @@ def train_model():
 
 
 if __name__ == "__main__":
+    logging.info("Running Training!")
     train_model()
+    logging.info("Artifacts output written in practicemodels/trainedmodel.pkl")
+    logging.info("Artifacts output written in practicemodels/encoder.pkl")

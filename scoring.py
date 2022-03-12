@@ -9,9 +9,13 @@ import os
 from sklearn import metrics
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
+import logging
+import sys
 import json
 from joblib import load
 from common_functions import preprocess_data
+
+logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 
 
 with open('config.json', 'r') as f:
@@ -22,7 +26,8 @@ with open('config.json', 'r') as f:
 
 test_data_path = os.path.join(config['test_data_path'])
 output_folder_path = os.path.join(config['output_folder_path'])
-model_path = os.path.join(config['prod_deployment_path'])
+# model_path = os.path.join(config['prod_deployment_path'])
+model_path = os.path.join(config['output_model_path'])
 
 
 def score_model(production=False):
@@ -51,4 +56,6 @@ def score_model(production=False):
 
 
 if __name__ == "__main__":
+    logging.info("Running Scoring!")
     score_model()
+    logging.info("Artifacts output written in practicemodels/latestscore.txt")

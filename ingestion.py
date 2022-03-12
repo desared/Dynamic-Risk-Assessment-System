@@ -3,8 +3,12 @@ Python script meant to ingest new data.
 """
 import pandas as pd
 import glob
+import logging
 import json
 import os
+import sys
+
+logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 
 
 with open("config.json", "r") as f:
@@ -35,4 +39,7 @@ def merge_multiple_dataframe():
 
 
 if __name__ == "__main__":
+    logging.info("Running Ingestion!")
     merge_multiple_dataframe()
+    logging.info("Artifacts output written in ingesteddata/finaldata.csv")
+    logging.info("Artifacts output written in ingesteddata/ingestedfiles.csv")

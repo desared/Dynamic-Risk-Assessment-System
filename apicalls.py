@@ -4,6 +4,10 @@ Python script meant to call your API endpoints.
 import requests
 import os
 import json
+import logging
+import sys
+
+logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 
 
 # Specify a URL that resolves to your workspace.
@@ -34,3 +38,4 @@ model_path = os.path.join(config['output_model_path'])
 
 with open(os.path.join(model_path, "apireturns.txt"), "w") as returns_file:
     returns_file.write(responses)
+    logging.info("Results written in practicemodels/apireturns.txt")

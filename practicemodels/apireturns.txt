@@ -1,7 +1,7 @@
 [0 1 1 1 1]
 0.5714285714285715
 [['lastmonth_activity', 'mean', 76.6], ['lastmonth_activity', 'median', 34.0], ['lastmonth_activity', 'standard deviation', 96.13948200401332], ['lastyear_activity', 'mean', 3100.4], ['lastyear_activity', 'median', 675.0], ['lastyear_activity', 'standard deviation', 5232.801907200386], ['number_of_employees', 'mean', 227.2], ['number_of_employees', 'median', 25.0], ['number_of_employees', 'standard deviation', 433.7138457554704]]
-execution_time:[['training.py', 0.8768998720006493], ['ingestion.py', 0.34003858500000206]]
+execution_time:[['training.py', 0.872861769003066], ['ingestion.py', 0.34663081399776274]]
 missing_data;[['corporation', '0%'], ['lastmonth_activity', '0%'], ['lastyear_activity', '0%'], ['number_of_employees', '0%'], ['exited', '0%']]
 outdated_packages:Package         Version Latest Type 
 --------------- ------- ------ -----

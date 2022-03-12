@@ -48,7 +48,7 @@ pipenv install
 "output_folder_path": "ingesteddata", 
 "test_data_path": "testdata", 
 "output_model_path": "practicemodels", 
-"prod_deployment_path": "practicemodels"
+"prod_deployment_path": "production_deployment"
 ```
 
 ### 2- Run data ingestion
@@ -67,8 +67,8 @@ python training.py
 ```
 Artifacts output:
 ```
-models/practicemodels/trainedmodel.pkl
-models/practicemodels/encoder.pkl
+practicemodels/trainedmodel.pkl
+practicemodels/encoder.pkl
 ```
 
 ###  4- Model scoring 
@@ -77,30 +77,19 @@ python scoring.py
 ```
 Artifacts output: 
 ```
-models/production_deployment/latestscore.txt
+practicemodels/latestscore.txt
 ``` 
 
 ### 5- Model deployment
-
-Change prod_deployment_path, because in this step, the trained model (trainedmodel.pkl), the model score 
-(latestscore.txt), and a record of your ingested data (ingestedfiles.txt) will be copied from their original locations
-to a production deployment directory.
-```bash
-"input_folder_path": "practicedata",
-"output_folder_path": "ingesteddata", 
-"test_data_path": "testdata", 
-"output_model_path": "practicemodels", 
-"prod_deployment_path": "production_deployment"
-```
 
 ```python
 python deployment.py
 ```
 Artifacts output:
 ```
-models/production_deployment/ingestedfiles.txt
-models/production_deployment/trainedmodel.pkl
-models/production_deployment/latestscore.txt
+production_deployment/ingestedfiles.txt
+production_deployment/trainedmodel.pkl
+production_deployment/latestscore.txt
 ``` 
 
 ### 6- Run diagnostics
@@ -114,7 +103,7 @@ python reporting.py
 ```
 Artifacts output:
 ```
-models/practicemodels/confusionmatrix.png
+practicemodels/confusionmatrix.png
 ```
 
 ### 8- Run Flask App
@@ -128,7 +117,7 @@ python apicalls.py
 ```
 Artifacts output:
 ```
-models/practicemodels/apireturns.txt
+practicemodels/apireturns.txt
 ```
 
 ### 11- Edit config.json file to use production data

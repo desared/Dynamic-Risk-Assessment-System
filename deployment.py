@@ -9,8 +9,13 @@ import os
 from sklearn import metrics
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
+import logging
+import sys
 import json
 from shutil import copy2
+
+
+logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 
 
 with open('config.json', 'r') as f:
@@ -41,4 +46,8 @@ def store_model_into_pickle():
 
 
 if __name__ == '__main__':
+    logging.info("Running Deployment!")
     store_model_into_pickle()
+    logging.info("Artifacts output written in production_deployment/ingestedfiles.txt")
+    logging.info("Artifacts output written in production_deployment/trainedmodel.pkl")
+    logging.info("Artifacts output written in production_deployment/latestscore.txt")
