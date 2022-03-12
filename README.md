@@ -165,17 +165,3 @@ View crontab file
 ```bash
 sudo crontab -l
 ```
-
-## License
-Distributed under the [MIT](https://choosealicense.com/licenses/mit/) License. See ```LICENSE``` for more information.
-
-## Resources
-
-- Flask
-  - https://pythonbasics.org/flask-http-methods/
-  - https://www.sqlshack.com/create-rest-apis-in-python-using-flask/
-  - https://medium.com/@shanakachathuranga/end-to-end-machine-learning-pipeline-with-mlops-tools-mlflow-dvc-flask-heroku-evidentlyai-github-c38b5233778c
-
-- Reportlab
-  - https://www.youtube.com/playlist?list=PLOGAj7tCqHx-IDg2x6cWzqN0um8Z4plQT
-  - https://www.reportlab.com/docs/reportlab-userguide.pdf
