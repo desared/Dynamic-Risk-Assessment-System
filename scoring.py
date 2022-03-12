@@ -21,7 +21,6 @@ with open('config.json', 'r') as f:
 
 test_data_path = os.path.join(config['test_data_path'])
 output_folder_path = os.path.join(config['output_folder_path'])
-# model_path = os.path.join(config['prod_deployment_path'])
 model_path = os.path.join(config['output_model_path'])
 
 

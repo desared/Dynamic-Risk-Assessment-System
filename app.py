@@ -11,7 +11,7 @@ from scoring import score_model
 app = Flask(__name__)
 app.secret_key = '1652d576-484a-49fd-913a-6879acfa6ba4'
 
-with open('config.json','r') as f:
+with open('config.json', 'r') as f:
     config = json.load(f) 
 
 dataset_csv_path = os.path.join(config['output_folder_path']) 
@@ -55,10 +55,12 @@ def diagnostics():
     """
     Diagnostics Endpoint.
     """
-    et = execution_time()
-    md = missing_data()
-    op = outdated_packages_list()     
-    return str("execution_time:" + et + "\nmissing_data;"+ md + "\noutdated_packages:" + op)
+    executiontime = execution_time()
+    missingdata = missing_data()
+    outdatedpackages = outdated_packages_list()
+    return str(
+        "execution_time:" + executiontime + "\nmissing_data;" + missingdata + "\noutdated_packages:" + outdatedpackages
+    )
 
 
 if __name__ == "__main__":    

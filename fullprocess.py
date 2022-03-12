@@ -30,16 +30,16 @@ with open(os.path.join(prod_deployment_path, "ingestedfiles.txt"), "r") as repor
         ingested_files.append(line.rstrip())
 
 
-new_files = False
+new_f1_scores = False
 for filename in os.listdir(input_folder_path):
     """
     Determine whether the source data folder has files that aren't listed in ingestedfiles.txt. 
     """
     if input_folder_path + "/" + filename not in ingested_files:
-        new_files = True
+        new_f1_scores = True
 
 # Deciding whether to proceed, part 1.
-if not new_files:
+if not new_f1_scores:
     """
     If you found new data, you should proceed. otherwise, do end the process here.
     """
@@ -48,27 +48,29 @@ if not new_files:
 
 
 # Checking for model drift.
-# check whether the score from the deployed model is different from the score from the model that uses the newest
+# Check whether the score from the deployed model is different from the score from the model that uses the newest
 # ingested data.
 ingestion.merge_multiple_dataframe()
 scoring.score_model(production=True)
 
 with open(os.path.join(prod_deployment_path, "latestscore.txt"), "r") as report_file:
-    old_f1 = float(report_file.read())
+    old_f1_score = float(report_file.read())
 
 with open(os.path.join(model_path, "latestscore.txt"), "r") as report_file:
-    new_f1 = float(report_file.read())
+    new_f1_score = float(report_file.read())
 
 
 # Deciding whether to proceed, part 2.
-if new_f1 >= old_f1:
+if new_f1_score >= old_f1_score:
     """
     If you found model drift, you should proceed. otherwise, do end the process here.
     """
-    print("Actual F1 (%s) is better/equal than old F1 (%s), no drift detected -> exiting" % (new_f1, old_f1))    
+    print(
+        "Actual F1 (%s) is better/equal than old F1 (%s), no drift detected -> exiting" % (new_f1_score, old_f1_score)
+    )
     exit(0)
 
-print("Actual F1 (%s) is WORSE than old F1 (%s), drift detected -> training model" % (new_f1, old_f1)) 
+print("Actual F1 (%s) is WORSE than old F1 (%s), drift detected -> training model" % (new_f1_score, old_f1_score)) 
 training.train_model()
 
 # Re-deployment.
