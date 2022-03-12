@@ -7,7 +7,11 @@ This project is part of Unit 5:
 A company that has 10,000 corporate clients company needs to create, deploy, and monitor a risk assessment ML model that will estimate the attrition risk 
 of each of the company's clients. If the model is accurate, it will enable the client managers to contact the clients with the highest risk and avoid losing clients and revenue.
 
-Creating and deploying the model isn't the end of your work, though. Your industry is dynamic and constantly changing, and a model that was created a year or a month ago might not still be accurate today. Because of this, you need to set up regular monitoring of your model to ensure that it remains accurate and up-to-date. You'll set up processes and scripts to re-train, re-deploy, monitor, and report on your ML model, so that your company can get risk assessments that are as accurate as possible and minimize client attrition.
+Creating and deploying the model isn't the end of the work, though. The industry is dynamic and constantly changing, 
+and a model that was created a year or a month ago might not still be accurate today. Because of this, we need to set up
+regular monitoring of the model to ensure that it remains accurate and up-to-date. Scripts to re-train, re-deploy, 
+monitor, and report on the ML model will be created. In this way, the company can get risk assessments that are as 
+accurate as possible and minimize client attrition.
 ## Prerequisites
 - Python 3 required
 - Linux environment may be needed within windows through WSL
@@ -23,7 +27,7 @@ Its recommended to install it in a separate virtual environment.
 pip install -r requirements.txt
 ```
 
-or
+or through pipenv:
 
 ```bash
 sudo apt install pipenv
