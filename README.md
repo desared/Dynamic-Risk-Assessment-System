@@ -130,6 +130,11 @@ practicemodels/apireturns.txt
 "prod_deployment_path": "production_deployment"
 ```
 
+Train production model:
+```python
+python training.py
+```
+
 ### 10- Full process automation
 ```python
 python fullprocess.py
