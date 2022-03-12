@@ -1,5 +1,6 @@
-from flask import Flask, session, jsonify, request
-import pandas as pd
+"""
+Preprocessing function.
+"""
 import numpy as np
 from sklearn.preprocessing import OneHotEncoder
 

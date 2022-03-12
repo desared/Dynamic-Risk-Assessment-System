@@ -1,7 +1,6 @@
 """
 Script meant to determine whether a model needs to be re-deployed, and to call all other Python scripts when needed.
 """
-from numpy import double
 import ingestion
 import training
 import scoring

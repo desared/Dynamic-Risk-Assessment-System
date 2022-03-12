@@ -2,12 +2,10 @@
 Python script meant to measure model and data diagnostics.
 """
 import pandas as pd
-import numpy as np
 import timeit
 import os
 import json
 from joblib import load
-from scipy.sparse import data
 from common_functions import preprocess_data
 import subprocess
 import logging

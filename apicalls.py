@@ -38,4 +38,3 @@ model_path = os.path.join(config['output_model_path'])
 
 with open(os.path.join(model_path, "apireturns.txt"), "w") as returns_file:
     returns_file.write(responses)
-    logging.info("Results written in practicemodels/apireturns.txt")

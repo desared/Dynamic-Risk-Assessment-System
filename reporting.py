@@ -1,13 +1,8 @@
 """
 Python script meant to generate reports about model metrics.
 """
-import pickle
-from sklearn.model_selection import train_test_split
-import pandas as pd
-import numpy as np
 from sklearn import metrics
 import matplotlib.pyplot as plt
-import seaborn as sns
 import logging
 import json
 import os
@@ -50,4 +45,3 @@ def score_model():
 if __name__ == "__main__":
     logging.info("Running Reporting!")
     score_model()
-    logging.info("Artifacts output written in practicemodels/confusionmatrix.png")

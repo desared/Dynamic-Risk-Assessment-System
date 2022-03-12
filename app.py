@@ -1,10 +1,7 @@
 """
 Python script meant to contain API endpoints.
 """
-from flask import Flask, session, jsonify, request
-import pandas as pd
-import numpy as np
-import pickle
+from flask import Flask, request
 import json
 import os
 from diagnostics import model_predictions, dataframe_summary, missing_data, outdated_packages_list, execution_time

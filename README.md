@@ -139,6 +139,8 @@ python training.py
 ```python
 python fullprocess.py
 ```
+
+
 ### 11- Cron job
 
 Start cron service
