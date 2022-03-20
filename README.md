@@ -1,8 +1,7 @@
 # Dynamic Risk Assessment System
-Project for [ML DevOps Engineer Nanodegree](https://www.udacity.com/course/machine-learning-dev-ops-engineer-nanodegree--nd0821) by Udacity.
+Project for [ML DevOps Engineer Nanodegree](https://www.udacity.com/course/machine-learning-dev-ops-engineer-nanodegree--nd0821), unit 5.
 
 ## Description
-This project is part of Unit 5:
 
 A company that has 10,000 corporate clients company needs to create, deploy, and monitor a risk assessment ML model that will estimate the attrition risk 
 of each of the company's clients. If the model is accurate, it will enable the client managers to contact the clients with the highest risk and avoid losing clients and revenue.
